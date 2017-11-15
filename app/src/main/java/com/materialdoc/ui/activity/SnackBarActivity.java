@@ -25,35 +25,17 @@ public class SnackBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_snack_bar);
 
-        findViewById(R.id.btnShow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSnackbar();
-            }
-        });
+        findViewById(R.id.btnShow).setOnClickListener(v -> showSnackbar());
 
-        findViewById(R.id.btnShowStyled).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledSnackbar();
-            }
-        });
+        findViewById(R.id.btnShowStyled).setOnClickListener(v -> showStyledSnackbar());
 
-        findViewById(R.id.btnHide).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hideSnackbar();
-            }
-        });
+        findViewById(R.id.btnHide).setOnClickListener(v -> hideSnackbar());
     }
 
     private void showSnackbar() {
         mSnackbar = Snackbar.make(findViewById(R.id.coordinatorLayout), "No network connection.", Snackbar.LENGTH_SHORT);
-        mSnackbar.setAction("Retry", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // retry to send email here
-            }
+        mSnackbar.setAction("Retry", v -> {
+            // retry to send email here
         });
         mSnackbar.show();
     }
@@ -61,17 +43,14 @@ public class SnackBarActivity extends AppCompatActivity {
     private void showStyledSnackbar() {
         mSnackbar = Snackbar.make(findViewById(R.id.coordinatorLayout), "No network connection.", Snackbar.LENGTH_SHORT);
         mSnackbar.setActionTextColor(getResources().getColor(R.color.indigo));
-        mSnackbar.setAction("Retry", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // retry to send email here
-            }
+        mSnackbar.setAction("Retry", v -> {
+            // retry to send email here
         });
 
         View snackbarView = mSnackbar.getView();
         int snackbarTextId = android.support.design.R.id.snackbar_text;
 
-        TextView textView = (TextView) snackbarView.findViewById(snackbarTextId);
+        TextView textView = snackbarView.findViewById(snackbarTextId);
         textView.setTextColor(getResources().getColor(R.color.indigo));
 
         snackbarView.setBackgroundColor(getResources().getColor(R.color.pink));

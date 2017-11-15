@@ -32,19 +32,9 @@ public class DatePickerActivity extends AppCompatActivity implements DatePickerD
     }
 
     private void initViews() {
-        findViewById(R.id.btnShow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
-        });
+        findViewById(R.id.btnShow).setOnClickListener(v -> showDatePicker());
 
-        findViewById(R.id.btnShowStyled).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledDatePicker();
-            }
-        });
+        findViewById(R.id.btnShowStyled).setOnClickListener(v -> showStyledDatePicker());
     }
 
     private void showDatePicker() {

@@ -26,14 +26,9 @@ public class SwipeToRefreshActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        mRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         mRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.petrol_100));
-        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshData();
-            }
-        });
+        mRefreshLayout.setOnRefreshListener(() -> refreshData());
     }
 
     private void refreshData() {

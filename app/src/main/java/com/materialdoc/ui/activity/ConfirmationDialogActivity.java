@@ -24,21 +24,11 @@ public class ConfirmationDialogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_confirmation_dialog);
 
-        Button btnSingle = (Button) findViewById(R.id.btnSingle);
-        btnSingle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSingleChoiceDialog();
-            }
-        });
+        Button btnSingle = findViewById(R.id.btnSingle);
+        btnSingle.setOnClickListener(v -> showSingleChoiceDialog());
 
-        Button btnMulti = (Button) findViewById(R.id.btnMulti);
-        btnMulti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledMultiChoiceDialog();
-            }
-        });
+        Button btnMulti = findViewById(R.id.btnMulti);
+        btnMulti.setOnClickListener(v -> showStyledMultiChoiceDialog());
     }
 
     public void showSingleChoiceDialog() {
@@ -48,29 +38,20 @@ public class ConfirmationDialogActivity extends AppCompatActivity {
         //list of items
         String[] items = getResources().getStringArray(R.array.ringtone_list);
         builder.setSingleChoiceItems(items, 0,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // item selected logic
-                    }
+                (dialog, which) -> {
+                    // item selected logic
                 });
 
         String positiveText = getString(android.R.string.ok);
         builder.setPositiveButton(positiveText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // positive button logic
-                    }
+                (dialog, which) -> {
+                    // positive button logic
                 });
 
         String negativeText = getString(android.R.string.cancel);
         builder.setNegativeButton(negativeText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // negative button logic
-                    }
+                (dialog, which) -> {
+                    // negative button logic
                 });
 
         AlertDialog dialog = builder.create();
@@ -86,29 +67,20 @@ public class ConfirmationDialogActivity extends AppCompatActivity {
         String[] items = getResources().getStringArray(R.array.ringtone_list);
         boolean[] selectedItemsArray = new boolean[items.length];
 
-        builder.setMultiChoiceItems(items, selectedItemsArray, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                //item checked logic
-            }
+        builder.setMultiChoiceItems(items, selectedItemsArray, (dialog, which, isChecked) -> {
+            //item checked logic
         });
 
         String positiveText = getString(android.R.string.ok);
         builder.setPositiveButton(positiveText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // positive button logic
-                    }
+                (dialog, which) -> {
+                    // positive button logic
                 });
 
         String negativeText = getString(android.R.string.cancel);
         builder.setNegativeButton(negativeText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // negative button logic
-                    }
+                (dialog, which) -> {
+                    // negative button logic
                 });
 
         AlertDialog dialog = builder.create();

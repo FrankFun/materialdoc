@@ -26,26 +26,11 @@ public class ToastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_toast);
 
-        findViewById(R.id.btnShow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast();
-            }
-        });
+        findViewById(R.id.btnShow).setOnClickListener(v -> showToast());
 
-        findViewById(R.id.btnShowStyled).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledToast();
-            }
-        });
+        findViewById(R.id.btnShowStyled).setOnClickListener(v -> showStyledToast());
 
-        findViewById(R.id.btnHide).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hideToast();
-            }
-        });
+        findViewById(R.id.btnHide).setOnClickListener(v -> hideToast());
     }
 
     private void showToast() {

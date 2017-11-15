@@ -23,7 +23,7 @@ public class IconsToolbarActivity extends AppCompatActivity implements Toolbar.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_styled_toolbar);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.main);
         toolbar.setOnMenuItemClickListener(this);
     }

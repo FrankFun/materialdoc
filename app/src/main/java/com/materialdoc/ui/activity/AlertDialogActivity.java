@@ -24,21 +24,11 @@ public class AlertDialogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_dialog_alert);
 
-        Button btnShowDialog = (Button) findViewById(R.id.btnShowDialog);
-        btnShowDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog();
-            }
-        });
+        Button btnShowDialog = findViewById(R.id.btnShowDialog);
+        btnShowDialog.setOnClickListener(v -> showDialog());
 
-        Button btnShowStylesDialog = (Button) findViewById(R.id.btnShowStylesDialog);
-        btnShowStylesDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledDialog();
-            }
-        });
+        Button btnShowStylesDialog = findViewById(R.id.btnShowStylesDialog);
+        btnShowStylesDialog.setOnClickListener(v -> showStyledDialog());
     }
 
     private void showDialog() {
@@ -48,20 +38,14 @@ public class AlertDialogActivity extends AppCompatActivity {
 
         String positiveText = getString(android.R.string.ok);
         builder.setPositiveButton(positiveText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // positive button logic
-                    }
+                (dialog, which) -> {
+                    // positive button logic
                 });
 
         String negativeText = getString(android.R.string.cancel);
         builder.setNegativeButton(negativeText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // negative button logic
-                    }
+                (dialog, which) -> {
+                    // negative button logic
                 });
 
         AlertDialog dialog = builder.create();
@@ -76,20 +60,14 @@ public class AlertDialogActivity extends AppCompatActivity {
 
         String positiveText = getString(android.R.string.ok);
         builder.setPositiveButton(positiveText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // positive button logic
-                    }
+                (dialog, which) -> {
+                    // positive button logic
                 });
 
         String negativeText = getString(android.R.string.cancel);
         builder.setNegativeButton(negativeText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // negative button logic
-                    }
+                (dialog, which) -> {
+                    // negative button logic
                 });
 
         AlertDialog dialog = builder.create();

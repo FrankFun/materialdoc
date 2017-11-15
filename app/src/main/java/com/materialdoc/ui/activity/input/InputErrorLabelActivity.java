@@ -23,25 +23,19 @@ public class InputErrorLabelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_input_error_label);
 
-        final TextInputLayout inputLayoutFirstName = (TextInputLayout) findViewById(R.id.inputLayoutFirstName);
-        final TextInputLayout inputLayoutLastName = (TextInputLayout) findViewById(R.id.inputLayoutLastName);
+        final TextInputLayout inputLayoutFirstName = findViewById(R.id.inputLayoutFirstName);
+        final TextInputLayout inputLayoutLastName = findViewById(R.id.inputLayoutLastName);
 
-        Button btnShowError = (Button) findViewById(R.id.btnShowError);
-        btnShowError.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputLayoutFirstName.setError(getString(R.string.First_name_is_required));
-                inputLayoutLastName.setError(getString(R.string.Date_pattern));
-            }
+        Button btnShowError = findViewById(R.id.btnShowError);
+        btnShowError.setOnClickListener(v -> {
+            inputLayoutFirstName.setError(getString(R.string.First_name_is_required));
+            inputLayoutLastName.setError(getString(R.string.Date_pattern));
         });
 
-        Button btnHideError = (Button) findViewById(R.id.btnHideError);
-        btnHideError.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputLayoutFirstName.setError("");
-                inputLayoutLastName.setError("");
-            }
+        Button btnHideError = findViewById(R.id.btnHideError);
+        btnHideError.setOnClickListener(v -> {
+            inputLayoutFirstName.setError("");
+            inputLayoutLastName.setError("");
         });
     }
 }

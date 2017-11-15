@@ -53,54 +53,51 @@ public class LinearProgressActivity extends AppCompatActivity {
     private void initViews() {
         mHandler = new Handler();
 
-        mDeterminateProgress = (ProgressBar) findViewById(R.id.determinateProgress);
-        mDeterminateStyledProgress = (ProgressBar) findViewById(R.id.determinateStyledProgress);
+        mDeterminateProgress = findViewById(R.id.determinateProgress);
+        mDeterminateStyledProgress = findViewById(R.id.determinateStyledProgress);
 
-        mBufferedProgress = (ProgressBar) findViewById(R.id.bufferedProgress);
-        mBufferedStyledProgress = (ProgressBar) findViewById(R.id.bufferedStyledProgress);
+        mBufferedProgress = findViewById(R.id.bufferedProgress);
+        mBufferedStyledProgress = findViewById(R.id.bufferedStyledProgress);
 
-        mMultiProgress = (ProgressBar) findViewById(R.id.multiProgress);
-        mMultiStyledProgress = (ProgressBar) findViewById(R.id.multiStyledProgress);
+        mMultiProgress = findViewById(R.id.multiProgress);
+        mMultiStyledProgress = findViewById(R.id.multiStyledProgress);
     }
 
     private void fillProgressBars() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                int newProgress = getNewProgress();
-                progress += newProgress;
-                secondaryProgress += (newProgress + 2);
+        mHandler.postDelayed(() -> {
+            int newProgress = getNewProgress();
+            progress += newProgress;
+            secondaryProgress += (newProgress + 2);
 
-                if (progress > 100) {
-                    progress = 100;
-                }
-
-                if (secondaryProgress > 100) {
-                    secondaryProgress = 100;
-                }
-
-                mDeterminateProgress.setProgress(progress);
-                mDeterminateStyledProgress.setProgress(progress);
-
-                mBufferedProgress.setProgress(progress);
-                mBufferedStyledProgress.setProgress(progress);
-
-                mMultiProgress.setProgress(progress);
-                mMultiStyledProgress.setProgress(progress);
-
-                if (secondaryProgress <= MAX_PROGRESS) {
-                    mBufferedProgress.setSecondaryProgress(secondaryProgress);
-                    mBufferedStyledProgress.setSecondaryProgress(secondaryProgress);
-                }
-
-                if (progress <= MAX_PROGRESS) {
-                    fillProgressBars();
-                } else {
-                    mMultiProgress.setIndeterminate(true);
-                    mMultiStyledProgress.setIndeterminate(true);
-                }
-
+            if (progress > 100) {
+                progress = 100;
             }
+
+            if (secondaryProgress > 100) {
+                secondaryProgress = 100;
+            }
+
+            mDeterminateProgress.setProgress(progress);
+            mDeterminateStyledProgress.setProgress(progress);
+
+            mBufferedProgress.setProgress(progress);
+            mBufferedStyledProgress.setProgress(progress);
+
+            mMultiProgress.setProgress(progress);
+            mMultiStyledProgress.setProgress(progress);
+
+            if (secondaryProgress <= MAX_PROGRESS) {
+                mBufferedProgress.setSecondaryProgress(secondaryProgress);
+                mBufferedStyledProgress.setSecondaryProgress(secondaryProgress);
+            }
+
+            if (progress <= MAX_PROGRESS) {
+                fillProgressBars();
+            } else {
+                mMultiProgress.setIndeterminate(true);
+                mMultiStyledProgress.setIndeterminate(true);
+            }
+
         }, PROGRESS_DELAY);
     }
 

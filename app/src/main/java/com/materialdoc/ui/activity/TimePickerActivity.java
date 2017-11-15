@@ -29,19 +29,9 @@ public class TimePickerActivity extends AppCompatActivity implements TimePickerD
 
 
     private void initViews() {
-        findViewById(R.id.btnShow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimePicker();
-            }
-        });
+        findViewById(R.id.btnShow).setOnClickListener(v -> showTimePicker());
 
-        findViewById(R.id.btnShowStyled).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStyledTimePicker();
-            }
-        });
+        findViewById(R.id.btnShowStyled).setOnClickListener(v -> showStyledTimePicker());
     }
 
     @Override
