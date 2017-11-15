@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
                 .map(toDisplayableList())
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(dataList -> mAdapter.setData(removeEmptyItems(dataList)), e -> L.e("Error during loading json data list", e));
+                .subscribe(dataList -> mAdapter.setData(removeEmptyItems(dataList)), e -> L.e(e));
     }
 
     @NonNull

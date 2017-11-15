@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +42,7 @@ public class ToastActivity extends AppCompatActivity {
         hideToast();
         mToast = Toast.makeText(this, "No network connection.", Toast.LENGTH_SHORT);
 
-        TextView textView = (TextView) mToast.getView().findViewById(android.R.id.message);
+        TextView textView = mToast.getView().findViewById(android.R.id.message);
         textView.setTextColor(Color.YELLOW);
 
         mToast.getView().setBackgroundColor(getResources().getColor(R.color.indigo));

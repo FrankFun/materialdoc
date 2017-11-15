@@ -1,14 +1,13 @@
 package com.materialdoc.ui.activity;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TimePicker;
+
 import com.materialdoc.R;
 
 import java.util.Calendar;

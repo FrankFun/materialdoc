@@ -6,13 +6,13 @@ import com.materialdoc.BuildConfig;
 
 public final class L {
 
-    public static String LOG_TAG = "Undefined";
+    private static String LOG_TAG = "Undefined";
 
-    public static void e(String message, Throwable cause) {
-        Log.e(LOG_TAG, "[" + message + "]", cause);
+    public static void e(Throwable cause) {
+        Log.e(LOG_TAG, "[" + "Error during loading json data list" + "]", cause);
     }
 
-    public static void e(String msg) {
+    static void e(String msg) {
         Throwable t = new Throwable();
         StackTraceElement[] elements = t.getStackTrace();
 

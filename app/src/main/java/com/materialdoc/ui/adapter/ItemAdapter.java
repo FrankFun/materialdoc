@@ -126,7 +126,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private TextView txtTitle;
 
-        public TitleViewHolder(View v) {
+        TitleViewHolder(View v) {
             super(v);
 
             txtTitle = v.findViewById(R.id.txtTitle);
@@ -141,7 +141,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //        private ImageView imgIcon;
 //        private ViewGroup imageHolder;
 
-        public DocumentViewHolder(View v) {
+        DocumentViewHolder(View v) {
             super(v);
 
             layoutDoc = v.findViewById(R.id.layoutDoc);
